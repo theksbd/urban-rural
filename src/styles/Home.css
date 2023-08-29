@@ -71,7 +71,12 @@ h1 {
   background-color: var(--primary-color) !important;
 }
 
-.nearest-city span {
+.nearest-city h3 {
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.nearest-city .bold {
   color: var(--primary-color);
   font-weight: bold;
 }
@@ -105,6 +110,24 @@ h1 {
 .imported-locations table td span {
   color: var(--primary-color);
   font-weight: bold;
+}
+
+.features {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.reset-btn {
+  color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+.export-excel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
 }
 
 @media screen and (max-width: 1200px) {

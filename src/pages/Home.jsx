@@ -1,10 +1,12 @@
 import { Box, Button, Modal } from '@mui/material';
 import { getPreciseDistance } from 'geolib';
 import { useRef, useState } from 'react';
+import * as xlsx from 'xlsx';
+import City from '../components/City.jsx';
 import { cities } from '../data/city.js';
 import '../styles/Home.css';
-import City from './City.jsx';
-import * as xlsx from 'xlsx';
+import degreeToDecimal from '../utils/degreeToDecimal.js';
+import ExportToExcel from '../components/ExportToExcel.jsx';
 
 const Home = () => {
   const [cityDetail, setCityDetail] = useState({});
@@ -13,8 +15,9 @@ const Home = () => {
   const [showModal, setShowModal] = useState(false);
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
-  const [nearestCity, setNearestCity] = useState('');
+  const [nearestCities, setNearestCities] = useState([]);
   const [importedLocations, setImportedLocations] = useState([]);
+  const dataToSave = [];
 
   const style = {
     position: 'absolute',
@@ -49,7 +52,7 @@ const Home = () => {
     e.preventDefault();
 
     if (latitude.trim() === '' || longitude.trim() === '') {
-      alert('Please enter latitude and longitude');
+      alert('Please enter latitude and longitude 😁');
       return;
     }
 
@@ -67,10 +70,10 @@ const Home = () => {
     const newSortedCities = newCities.sort((a, b) => a.distance - b.distance);
 
     // Get the nearest city
-    const nearestCity = newSortedCities[0];
+    const nearestCities = newSortedCities.slice(0, 10);
 
     // Show the nearest city
-    setNearestCity(nearestCity);
+    setNearestCities(nearestCities);
   };
 
   const readUploadFile = e => {
@@ -92,9 +95,28 @@ const Home = () => {
     }
   };
 
+  const handleClickReset = () => {
+    setSearch('');
+    setLatitude('');
+    setLongitude('');
+    setNearestCities([]);
+    setImportedLocations([]);
+    inputSearch.current.focus();
+  };
+
   return (
     <div className='cities'>
       <h1>CITIES</h1>
+
+      <div className='features'>
+        <Button
+          variant='outlined'
+          className='reset-btn'
+          onClick={handleClickReset}
+        >
+          Reset
+        </Button>
+      </div>
 
       <div className='search-bar'>
         <input
@@ -122,18 +144,29 @@ const Home = () => {
           />
 
           <Button variant='outlined' type='submit' className='form-btn-submit'>
-            Find the closest city
+            Find the nearest city
           </Button>
         </form>
 
         <div className='nearest-city'>
-          {nearestCity ? (
+          {nearestCities.length > 0 ? (
             <div>
-              The nearest city is <span>{nearestCity.name}</span> with a
-              distance of{' '}
-              <span>
-                {new Intl.NumberFormat().format(nearestCity.distance)} (m)
-              </span>
+              <h3>Nearest Cities</h3>
+              <div className='nearest-cities'>
+                {nearestCities.map((city, index) => (
+                  <div key={city.id}>
+                    <span>{index + 1}.</span>
+                    <span className='bold'>
+                      {city.name} ({degreeToDecimal(city.latitude)},
+                      {degreeToDecimal(city.longitude)})
+                    </span>
+                    with a distance of{' '}
+                    <span className='bold'>
+                      {new Intl.NumberFormat().format(city.distance)} (m)
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
           ) : (
             ''
@@ -151,7 +184,12 @@ const Home = () => {
         />
       </form>
 
-      {/* Print the table of importedLocation: [{id, name, latitude, longitude}] and the nearest city of each row */}
+      {importedLocations.length > 0 && (
+        <div className='export-excel'>
+          <ExportToExcel data={dataToSave} fileName='nhibo' />
+        </div>
+      )}
+
       {importedLocations.length > 0 && (
         <div className='imported-locations'>
           <table>
@@ -187,6 +225,22 @@ const Home = () => {
                 // Get the nearest city
                 const nearestCity = newSortedCities[0];
 
+                dataToSave.push({
+                  id: location.id,
+                  name: location.name,
+                  latitude: location.latitude,
+                  longitude: location.longitude,
+                  nearestCity: nearestCity
+                    ? `${nearestCity.name} (${degreeToDecimal(
+                        nearestCity.latitude
+                      )}, ${degreeToDecimal(
+                        nearestCity.longitude
+                      )}) with a distance of ${new Intl.NumberFormat().format(
+                        nearestCity.distance
+                      )} (m)`
+                    : 'Can not find the nearest city'
+                });
+
                 return (
                   <tr key={index}>
                     <td>{location.id}</td>
@@ -196,7 +250,12 @@ const Home = () => {
                     <td>
                       {nearestCity ? (
                         <div>
-                          <span>{nearestCity.name}</span> with a distance of{' '}
+                          <span>
+                            {nearestCity.name} (
+                            {degreeToDecimal(nearestCity.latitude)},{' '}
+                            {degreeToDecimal(nearestCity.longitude)})
+                          </span>{' '}
+                          with a distance of{' '}
                           <span>
                             {new Intl.NumberFormat().format(
                               nearestCity.distance
@@ -205,7 +264,7 @@ const Home = () => {
                           </span>
                         </div>
                       ) : (
-                        ''
+                        'Can not find the nearest city'
                       )}
                     </td>
                   </tr>

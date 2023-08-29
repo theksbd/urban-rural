@@ -2,6 +2,7 @@ import { getPreciseDistance } from 'geolib';
 import PropTypes from 'prop-types';
 import { cities } from '../data/city.js';
 import '../styles/City.css';
+import degreeToDecimal from '../utils/degreeToDecimal.js';
 
 const City = ({ city: { id, name, latitude, longitude } }) => {
   return (
@@ -9,7 +10,8 @@ const City = ({ city: { id, name, latitude, longitude } }) => {
       <h1>{name.toUpperCase()}</h1>
       <h3>ID: {id}</h3>
       <h3>
-        Latitude and Longitude: {latitude}, {longitude}
+        Latitude and Longitude: {degreeToDecimal(latitude)},{' '}
+        {degreeToDecimal(longitude)}
       </h3>
       <div className='grid'>
         {cities
