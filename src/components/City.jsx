@@ -25,6 +25,7 @@ const City = ({ city: { id, name, latitude, longitude } }) => {
               return { ...city, distance };
             })
             .sort((a, b) => a.distance - b.distance)
+            .slice(0, 10)
             .map(city => {
               return (
                 <div key={city.id}>
