@@ -11,6 +11,25 @@ const City = ({ city: { id, name, latitude, longitude } }) => {
       <h3>
         Latitude and Longitude: {latitude}, {longitude}
       </h3>
+      {/* Leaflet Map */}
+      <div className='map'>
+        <iframe
+          width='300'
+          height='170'
+          src={`https://maps.google.com/maps?q='+${latitude}+','+${longitude}+'&hl=es&z=14&amp;output=embed`}
+        ></iframe>
+        <br />
+        <small>
+          <a
+            href="https://maps.google.com/maps?q='+data.lat+','+data.lon+'&hl=es;z=14&amp;output=embed"
+            target='_blank'
+            rel='noreferrer'
+          >
+            See map bigger
+          </a>
+        </small>
+      </div>
+
       <div className='grid'>
         {cities
           .filter(city => city.id !== id)
