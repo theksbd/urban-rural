@@ -13,3 +13,8 @@
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 1rem;
 }
+
+.grid span {
+  font-weight: bold;
+  padding: 0;
+}

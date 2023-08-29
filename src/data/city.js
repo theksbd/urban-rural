@@ -38,10 +38,34 @@ export const cities = [
     longitude: '105°32′54″E'
   },
   {
+    id: 14,
+    name: 'Bắc Giang',
+    latitude: '21°16′29″N',
+    longitude: '106°12′06″E'
+  },
+  {
+    id: 15,
+    name: 'Bắc Ninh',
+    latitude: '21°11′15″N',
+    longitude: '106°04′24″E'
+  },
+  {
     id: 16,
     name: 'Hà Nội',
     latitude: '21°01′42″N',
     longitude: '105°51′12″E'
+  },
+  {
+    id: 17,
+    name: 'Quảng Ninh',
+    latitude: '21°15′04″N',
+    longitude: '107°11′37″E'
+  },
+  {
+    id: 18,
+    name: 'Hải Dương',
+    latitude: '20°56′00″N',
+    longitude: '106°19′00″E'
   },
   {
     id: 19,

@@ -12,30 +12,27 @@ const City = ({ city: { id, name, latitude, longitude } }) => {
         Latitude and Longitude: {latitude}, {longitude}
       </h3>
       <div className='grid'>
-        {
-          //  Print distance between this city and other cities
-          cities
-            .filter(city => city.id !== id)
-            .map(city => {
-              const distance = getPreciseDistance(
-                { latitude, longitude },
-                { latitude: city.latitude, longitude: city.longitude }
-              );
+        {cities
+          .filter(city => city.id !== id)
+          .map(city => {
+            const distance = getPreciseDistance(
+              { latitude, longitude },
+              { latitude: city.latitude, longitude: city.longitude }
+            );
 
-              return { ...city, distance };
-            })
-            .sort((a, b) => a.distance - b.distance)
-            .slice(0, 10)
-            .map(city => {
-              return (
-                <div key={city.id}>
-                  <p>
-                    Distance to {city.name}: {city.distance} (m)
-                  </p>
-                </div>
-              );
-            })
-        }
+            return { ...city, distance };
+          })
+          .sort((a, b) => a.distance - b.distance)
+          .slice(0, 10)
+          .map(city => {
+            return (
+              <div key={city.id}>
+                <p>
+                  Distance to <span>{city.name}</span>: {city.distance} (m)
+                </p>
+              </div>
+            );
+          })}
       </div>
     </div>
   );
