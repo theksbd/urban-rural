@@ -381,5 +381,4 @@ export const cities = [
   },
   { id: 71, name: 'Nhi Bò', latitude: '22°11′14″N', longitude: '116°45′40″E' },
   { id: 72, name: 'Lạng Sơn', latitude: '21°51′14″N', longitude: '106°45′40″E' },
-  ...
 ];
