@@ -1,7 +1,7 @@
-import '../styles/City.css';
+import { getPreciseDistance } from 'geolib';
 import PropTypes from 'prop-types';
 import { cities } from '../data/city.js';
-import { getPreciseDistance } from 'geolib';
+import '../styles/City.css';
 
 const City = ({ city: { id, name, latitude, longitude } }) => {
   return (
