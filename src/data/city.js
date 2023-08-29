@@ -74,10 +74,160 @@ export const cities = [
     longitude: '106°40′57″E'
   },
   {
+    id: 20,
+    name: 'Hòa Bình',
+    latitude: '20°49′52″N',
+    longitude: '105°20′23″E'
+  },
+  {
+    id: 21,
+    name: 'Hưng Yên',
+    latitude: '20°51′16″N',
+    longitude: '106°00′58″E'
+  },
+  {
+    id: 22,
+    name: 'Hà Nam',
+    latitude: '20°35′09″N',
+    longitude: '105°55′26″E'
+  },
+  {
+    id: 23,
+    name: 'Thái Bình',
+    latitude: '20°32′20″N',
+    longitude: '106°23′40″E'
+  },
+  {
+    id: 24,
+    name: 'Nam Định',
+    latitude: '20°15′00″N',
+    longitude: '106°15′00″E'
+  },
+  {
+    id: 25,
+    name: 'Ninh Bình',
+    latitude: '20°15′03″N',
+    longitude: '105°58′29″E'
+  },
+  {
+    id: 26,
+    name: 'Thanh Hóa',
+    latitude: '20°08′28″N',
+    longitude: '105°18′34″E'
+  },
+  {
+    id: 27,
+    name: 'Nghệ An',
+    latitude: '19°10′35″N',
+    longitude: '104°58′38″E'
+  },
+  {
+    id: 28,
+    name: 'Hà Tĩnh',
+    latitude: '18°20′28″N',
+    longitude: '105°54′26″E'
+  },
+  {
+    id: 29,
+    name: 'Quảng Bình',
+    latitude: '17°28′07″N',
+    longitude: '106°15′15″E'
+  },
+  {
+    id: 30,
+    name: 'Quảng Trị',
+    latitude: '16°49′51″N',
+    longitude: '107°04′02″E'
+  },
+  {
+    id: 31,
+    name: 'Thừa Thiên Huế',
+    latitude: '16°27′49″N',
+    longitude: '107°35′05″E'
+  },
+  {
     id: 32,
     name: 'Đà Nẵng',
     latitude: '16°04′36″N',
     longitude: '108°13′22″E'
+  },
+  {
+    id: 33,
+    name: 'Quảng Nam',
+    latitude: '15°33′25″N',
+    longitude: '108°02′12″E'
+  },
+  {
+    id: 34,
+    name: 'Quảng Ngãi',
+    latitude: '15°07′26″N',
+    longitude: '108°48′42″E'
+  },
+  {
+    id: 35,
+    name: 'Kon Tum',
+    latitude: '14°21′06″N',
+    longitude: '108°00′01″E'
+  },
+  {
+    id: 36,
+    name: 'Gia Lai',
+    latitude: '13°54′17″N',
+    longitude: '108°10′47″E'
+  },
+  {
+    id: 37,
+    name: 'Bình Định',
+    latitude: '14°11′43″N',
+    longitude: '108°52′48″E'
+  },
+  {
+    id: 38,
+    name: 'Phú Yên',
+    latitude: '13°05′25″N',
+    longitude: '109°05′29″E'
+  },
+  {
+    id: 39,
+    name: 'Đắk Lắk',
+    latitude: '12°45′59″N',
+    longitude: '108°19′31″E'
+  },
+  {
+    id: 40,
+    name: 'Khánh Hòa',
+    latitude: '12°04′23″N',
+    longitude: '109°02′52″E'
+  },
+  {
+    id: 41,
+    name: 'Đắk Nông',
+    latitude: '12°15′25″N',
+    longitude: '107°42′06″E'
+  },
+  {
+    id: 42,
+    name: 'Lâm Đồng',
+    latitude: '11°41′04″N',
+    longitude: '108°08′28″E'
+  },
+  {
+    id: 43,
+    name: 'Ninh Thuận',
+    latitude: '11°33′56″N',
+    longitude: '108°59′25″E'
+  },
+  {
+    id: 44,
+    name: 'Bình Phước',
+    latitude: '11°45′21″N',
+    longitude: '106°43′11″E'
+  },
+  {
+    id: 45,
+    name: 'Tây Ninh',
+    latitude: '11°22′04″N',
+    longitude: '106°07′08″E'
   },
   {
     id: 46,
@@ -86,15 +236,105 @@ export const cities = [
     longitude: '106°37′30″E'
   },
   {
+    id: 47,
+    name: 'Đồng Nai',
+    latitude: '11°03′16″N',
+    longitude: '107°08′49″E'
+  },
+  {
+    id: 48,
+    name: 'Bình Thuận',
+    latitude: '11°06′01″N',
+    longitude: '108°08′28″E'
+  },
+  {
     id: 49,
     name: 'Thành phố Hồ Chí Minh',
     latitude: '10°46′10″N',
     longitude: '106°40′55″E'
   },
   {
+    id: 50,
+    name: 'Long An',
+    latitude: '10°41′30″N',
+    longitude: '106°12′17″E'
+  },
+  {
+    id: 51,
+    name: 'Bà Rịa – Vũng Tàu',
+    latitude: '10°24′37″N',
+    longitude: '107°08′12″E'
+  },
+  {
+    id: 52,
+    name: 'Đồng Tháp',
+    latitude: '10°34′32″N',
+    longitude: '105°40′59″E'
+  },
+  {
+    id: 53,
+    name: 'An Giang',
+    latitude: '10°22′52″N',
+    longitude: '105°25′12″E'
+  },
+  {
+    id: 54,
+    name: 'Tiền Giang',
+    latitude: '10°25′13″N',
+    longitude: '106°17′49″E'
+  },
+  {
+    id: 55,
+    name: 'Vĩnh Long',
+    latitude: '10°14′41″N',
+    longitude: '105°57′32″E'
+  },
+  {
+    id: 56,
+    name: 'Bến Tre',
+    latitude: '10°14′54″N',
+    longitude: '106°22′34″E'
+  },
+  {
     id: 57,
     name: 'Cần Thơ',
     latitude: '10°01′57″N',
     longitude: '105°47′03″E'
+  },
+  {
+    id: 58,
+    name: 'Kiên Giang',
+    latitude: '9°50′11″N',
+    longitude: '105°07′32″E'
+  },
+  {
+    id: 59,
+    name: 'Trà Vinh',
+    latitude: '9°48′50″N',
+    longitude: '106°17′56″E'
+  },
+  {
+    id: 60,
+    name: 'Hậu Giang',
+    latitude: '9°45′52″N',
+    longitude: '105°38′25″E'
+  },
+  {
+    id: 61,
+    name: 'Sóc Trăng',
+    latitude: '9°36′N',
+    longitude: '105°54′E'
+  },
+  {
+    id: 62,
+    name: 'Bạc Liêu',
+    latitude: '9°18′44″N',
+    longitude: '105°29′36″E'
+  },
+  {
+    id: 63,
+    name: 'Cà Mau',
+    latitude: '9°03′41″N',
+    longitude: '105°01′55″E'
   }
 ];
