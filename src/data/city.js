@@ -378,6 +378,5 @@ export const cities = [
     name: 'Thành phố Thuận An',
     latitude: '10°54′18″N',
     longitude: '106°41′58″E'
-  },
-  { id: 71, name: 'Thành phố Tây Ninh', latitude: '11°22′4″N', longitude: '106°7′8″E' }
+  }
 ];
