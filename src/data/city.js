@@ -336,5 +336,47 @@ export const cities = [
     name: 'Cà Mau',
     latitude: '9°03′41″N',
     longitude: '105°01′55″E'
+  },
+  {
+    id: 64,
+    name: 'Thành phố Bà Rịa',
+    latitude: '10°29′57″N',
+    longitude: '107°10′3″E'
+  },
+  {
+    id: 65,
+    name: 'Thành phố Vũng Tàu',
+    latitude: '10°20′37″N',
+    longitude: '107°05′43″E'
+  },
+  {
+    id: 66,
+    name: 'Thành phố Thủ Dầu Một',
+    latitude: '11°00′1″N',
+    longitude: '106°38′56″E'
+  },
+  {
+    id: 67,
+    name: 'Thành phố Dĩ An',
+    latitude: '10°54′14″N',
+    longitude: '106°46′4″E'
+  },
+  {
+    id: 68,
+    name: 'Thành phố Biên Hòa',
+    latitude: '10°57′0″N',
+    longitude: '106°52′26″E'
+  },
+  {
+    id: 69,
+    name: 'Thành phố Thủ Đức',
+    latitude: '10°50′59″N',
+    longitude: '106°46′06″E'
+  },
+  {
+    id: 70,
+    name: 'Thành phố Thuận An',
+    latitude: '10°54′18″N',
+    longitude: '106°41′58″E'
   }
 ];
