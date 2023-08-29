@@ -4,6 +4,7 @@ import { useRef, useState } from 'react';
 import { cities } from '../data/city.js';
 import '../styles/Home.css';
 import City from './City.jsx';
+import * as xlsx from 'xlsx';
 
 const Home = () => {
   const [cityDetail, setCityDetail] = useState({});
@@ -13,6 +14,7 @@ const Home = () => {
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
   const [nearestCity, setNearestCity] = useState('');
+  const [importedLocations, setImportedLocations] = useState([]);
 
   const style = {
     position: 'absolute',
@@ -71,6 +73,25 @@ const Home = () => {
     setNearestCity(nearestCity);
   };
 
+  const readUploadFile = e => {
+    e.preventDefault();
+
+    if (e.target.files) {
+      const reader = new FileReader();
+      reader.onload = e => {
+        const data = e.target.result;
+        const workbook = xlsx.read(data, { type: 'array' });
+        const sheetName = workbook.SheetNames[0];
+        const worksheet = workbook.Sheets[sheetName];
+        const json = xlsx.utils.sheet_to_json(worksheet);
+        console.log(json);
+
+        setImportedLocations(json);
+      };
+      reader.readAsArrayBuffer(e.target.files[0]);
+    }
+  };
+
   return (
     <div className='cities'>
       <h1>CITIES</h1>
@@ -116,6 +137,76 @@ const Home = () => {
           )}
         </div>
       </div>
+
+      <form className='upload-excel'>
+        <label htmlFor='upload'>Upload File</label>
+        <input
+          type='file'
+          name='upload'
+          id='upload'
+          onChange={readUploadFile}
+        />
+      </form>
+
+      {/* Print the table of importedLocation: [{id, name, latitude, longitude}] and the nearest city of each row */}
+      {importedLocations.length > 0 && (
+        <div className='imported-locations'>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>LATITUDE</th>
+                <th>LONGITUDE</th>
+                <th>NEAREST CITY</th>
+              </tr>
+            </thead>
+            <tbody>
+              {importedLocations.map((location, index) => {
+                // Calculate the distance from the entered latitude and longitude to the nearest city
+                const newCities = cities.map(city => {
+                  const distance = getPreciseDistance(
+                    {
+                      latitude: location.latitude,
+                      longitude: location.longitude
+                    },
+                    { latitude: city.latitude, longitude: city.longitude }
+                  );
+
+                  return { ...city, distance };
+                });
+
+                // Sort the cities by distance
+                const newSortedCities = newCities.sort(
+                  (a, b) => a.distance - b.distance
+                );
+
+                // Get the nearest city
+                const nearestCity = newSortedCities[0];
+
+                return (
+                  <tr key={index}>
+                    <td>{location.id}</td>
+                    <td>{location.name}</td>
+                    <td>{location.latitude}</td>
+                    <td>{location.longitude}</td>
+                    <td>
+                      {nearestCity ? (
+                        <div>
+                          <span>{nearestCity.name}</span> with a distance of{' '}
+                          <span>{nearestCity.distance} (m)</span>
+                        </div>
+                      ) : (
+                        ''
+                      )}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      )}
 
       <h4 className='title-number-record'>
         {

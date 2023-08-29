@@ -76,6 +76,37 @@ h1 {
   font-weight: bold;
 }
 
+.upload-excel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.imported-locations {
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.imported-locations table {
+  border-collapse: collapse;
+  width: 80%;
+}
+
+.imported-locations table td,
+.imported-locations table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.imported-locations table td span {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
 @media screen and (max-width: 1200px) {
   .cities-container {
     grid-template-columns: repeat(3, 1fr);
