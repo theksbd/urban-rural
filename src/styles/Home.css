@@ -1,0 +1,72 @@
+:root {
+  --primary-color: rgb(42, 95, 14);
+}
+
+.cities {
+  position: relative;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--primary-color);
+}
+
+.cities-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.cities-item {
+  border: 3px solid var(--primary-color);
+  padding: 10px;
+  width: 300px;
+}
+
+.cities-item p {
+  cursor: pointer;
+}
+
+.cities-item p:hover {
+  color: var(--primary-color);
+}
+
+.search-bar {
+  margin: 1rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-bar input {
+  border: 1px solid var(--primary-color);
+  padding: 0.5rem;
+  border-radius: 5px;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+.title-number-record {
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .cities-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .cities-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .cities-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

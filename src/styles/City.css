@@ -1,0 +1,15 @@
+.modal h1 {
+  margin-bottom: 20px;
+}
+
+.modal h3 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+}
