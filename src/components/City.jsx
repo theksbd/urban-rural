@@ -28,7 +28,8 @@ const City = ({ city: { id, name, latitude, longitude } }) => {
             return (
               <div key={city.id}>
                 <p>
-                  Distance to <span>{city.name}</span>: {city.distance} (m)
+                  Distance to <span>{city.name}</span>:{' '}
+                  {new Intl.NumberFormat().format(city.distance)} (m)
                 </p>
               </div>
             );

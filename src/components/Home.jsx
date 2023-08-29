@@ -130,7 +130,10 @@ const Home = () => {
           {nearestCity ? (
             <div>
               The nearest city is <span>{nearestCity.name}</span> with a
-              distance of <span>{nearestCity.distance} (m)</span>
+              distance of{' '}
+              <span>
+                {new Intl.NumberFormat().format(nearestCity.distance)} (m)
+              </span>
             </div>
           ) : (
             ''
@@ -194,7 +197,12 @@ const Home = () => {
                       {nearestCity ? (
                         <div>
                           <span>{nearestCity.name}</span> with a distance of{' '}
-                          <span>{nearestCity.distance} (m)</span>
+                          <span>
+                            {new Intl.NumberFormat().format(
+                              nearestCity.distance
+                            )}{' '}
+                            (m)
+                          </span>
                         </div>
                       ) : (
                         ''
