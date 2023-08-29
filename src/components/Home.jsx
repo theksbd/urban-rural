@@ -23,7 +23,7 @@ const Home = () => {
   };
 
   const handleChangeSearch = e => {
-    setSearch(e.target.value.toLowerCase());
+    setSearch(e.target.value);
   };
 
   const handleClickCity = city => {
@@ -48,7 +48,7 @@ const Home = () => {
       <h4 className='title-number-record'>
         {
           cities.filter(city =>
-            city.name.trim().toLowerCase().includes(search.trim())
+            city.name.trim().toLowerCase().includes(search.toLowerCase().trim())
           ).length
         }{' '}
         RECORDS BELOW
@@ -57,7 +57,7 @@ const Home = () => {
       <div className='cities-container'>
         {cities
           .filter(city =>
-            city.name.trim().toLowerCase().includes(search.trim())
+            city.name.trim().toLowerCase().includes(search.toLowerCase().trim())
           )
           .map(city => (
             <div key={city.id} className='cities-item'>
