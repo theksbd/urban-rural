@@ -1,5 +1,7 @@
 import '../styles/City.css';
 import PropTypes from 'prop-types';
+import { cities } from '../data/city.js';
+import { getPreciseDistance } from 'geolib';
 
 const City = ({ city: { id, name, latitude, longitude } }) => {
   return (
@@ -9,7 +11,31 @@ const City = ({ city: { id, name, latitude, longitude } }) => {
       <h3>
         Latitude and Longitude: {latitude}, {longitude}
       </h3>
-      <div className='links links-grid'>Hello</div>
+      <div className='grid'>
+        {
+          //  Print distance between this city and other cities
+          cities
+            .filter(city => city.id !== id)
+            .map(city => {
+              const distance = getPreciseDistance(
+                { latitude, longitude },
+                { latitude: city.latitude, longitude: city.longitude }
+              );
+
+              return { ...city, distance };
+            })
+            .sort((a, b) => a.distance - b.distance)
+            .map(city => {
+              return (
+                <div key={city.id}>
+                  <p>
+                    Distance to {city.name}: {city.distance} (m)
+                  </p>
+                </div>
+              );
+            })
+        }
+      </div>
     </div>
   );
 };

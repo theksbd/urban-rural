@@ -1,14 +1,13 @@
+import { Box, Modal } from '@mui/material';
 import { useRef, useState } from 'react';
-import { cities as ALL_CITIES } from '../data/city.js';
+import { cities } from '../data/city.js';
 import '../styles/Home.css';
 import City from './City.jsx';
-import { Box, Modal } from '@mui/material';
 
 const Home = () => {
-  const [cities, setCities] = useState(ALL_CITIES);
+  const [cityDetail, setCityDetail] = useState({});
   const [search, setSearch] = useState('');
   const [showModal, setShowModal] = useState(false);
-  const [cityDetail, setCityDetail] = useState({});
   const inputSearch = useRef(null);
 
   const style = {
