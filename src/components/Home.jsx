@@ -1,9 +1,9 @@
 import { Box, Button, Modal } from '@mui/material';
+import { getPreciseDistance } from 'geolib';
 import { useRef, useState } from 'react';
 import { cities } from '../data/city.js';
 import '../styles/Home.css';
 import City from './City.jsx';
-import { getPreciseDistance } from 'geolib';
 
 const Home = () => {
   const [cityDetail, setCityDetail] = useState({});
@@ -78,7 +78,7 @@ const Home = () => {
       <div className='search-bar'>
         <input
           type='text'
-          placeholder='Search'
+          placeholder='Search city by name'
           onChange={handleChangeSearch}
           value={search}
           ref={inputSearch}
