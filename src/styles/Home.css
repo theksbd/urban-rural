@@ -53,6 +53,29 @@ h1 {
   margin-bottom: 2rem;
 }
 
+.custom-location {
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-location form input {
+  margin-right: 10px;
+}
+
+.form-btn-submit {
+  color: whitesmoke !important;
+  border-color: var(--primary-color) !important;
+  background-color: var(--primary-color) !important;
+}
+
+.nearest-city span {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
 @media screen and (max-width: 1200px) {
   .cities-container {
     grid-template-columns: repeat(3, 1fr);

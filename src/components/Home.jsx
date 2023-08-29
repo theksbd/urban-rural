@@ -1,14 +1,18 @@
-import { Box, Modal } from '@mui/material';
+import { Box, Button, Modal } from '@mui/material';
 import { useRef, useState } from 'react';
 import { cities } from '../data/city.js';
 import '../styles/Home.css';
 import City from './City.jsx';
+import { getPreciseDistance } from 'geolib';
 
 const Home = () => {
   const [cityDetail, setCityDetail] = useState({});
   const [search, setSearch] = useState('');
-  const [showModal, setShowModal] = useState(false);
   const inputSearch = useRef(null);
+  const [showModal, setShowModal] = useState(false);
+  const [latitude, setLatitude] = useState('');
+  const [longitude, setLongitude] = useState('');
+  const [nearestCity, setNearestCity] = useState('');
 
   const style = {
     position: 'absolute',
@@ -26,9 +30,45 @@ const Home = () => {
     setSearch(e.target.value);
   };
 
+  const handleChangeLatitude = e => {
+    setLatitude(e.target.value);
+  };
+
+  const handleChangeLongitude = e => {
+    setLongitude(e.target.value);
+  };
+
   const handleClickCity = city => {
     setShowModal(true);
     setCityDetail(city);
+  };
+
+  const handleSubmitForm = e => {
+    e.preventDefault();
+
+    if (latitude.trim() === '' || longitude.trim() === '') {
+      alert('Please enter latitude and longitude');
+      return;
+    }
+
+    // Calculate the distance from the entered latitude and longitude to the nearest city
+    const newCities = cities.map(city => {
+      const distance = getPreciseDistance(
+        { latitude, longitude },
+        { latitude: city.latitude, longitude: city.longitude }
+      );
+
+      return { ...city, distance };
+    });
+
+    // Sort the cities by distance
+    const newSortedCities = newCities.sort((a, b) => a.distance - b.distance);
+
+    // Get the nearest city
+    const nearestCity = newSortedCities[0];
+
+    // Show the nearest city
+    setNearestCity(nearestCity);
   };
 
   return (
@@ -43,6 +83,38 @@ const Home = () => {
           value={search}
           ref={inputSearch}
         />
+      </div>
+
+      <div className='custom-location'>
+        <form className='form' onSubmit={handleSubmitForm}>
+          <input
+            type='text'
+            placeholder='Latitude'
+            onChange={handleChangeLatitude}
+            value={latitude}
+          />
+          <input
+            type='text'
+            placeholder='Longitude'
+            onChange={handleChangeLongitude}
+            value={longitude}
+          />
+
+          <Button variant='outlined' type='submit' className='form-btn-submit'>
+            Find the closest city
+          </Button>
+        </form>
+
+        <div className='nearest-city'>
+          {nearestCity ? (
+            <div>
+              The nearest city is <span>{nearestCity.name}</span> with a
+              distance of <span>{nearestCity.distance} (m)</span>
+            </div>
+          ) : (
+            ''
+          )}
+        </div>
       </div>
 
       <h4 className='title-number-record'>
