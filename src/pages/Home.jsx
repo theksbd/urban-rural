@@ -69,7 +69,7 @@ const Home = () => {
     // Sort the cities by distance
     const newSortedCities = newCities.sort((a, b) => a.distance - b.distance);
 
-    // Get the nearest city
+    // Get the nearest cities
     const nearestCities = newSortedCities.slice(0, 10);
 
     // Show the nearest city
@@ -222,23 +222,29 @@ const Home = () => {
                   (a, b) => a.distance - b.distance
                 );
 
-                // Get the nearest city
-                const nearestCity = newSortedCities[0];
+                // Get the nearest cities
+                const nearestCities = newSortedCities.slice(0, 3);
 
                 dataToExport.push({
                   id: location.id,
                   name: location.name,
                   latitude: location.latitude,
                   longitude: location.longitude,
-                  nearestCity: nearestCity
-                    ? `${nearestCity.name} (${degreeToDecimal(
-                        nearestCity.latitude
-                      )}, ${degreeToDecimal(
-                        nearestCity.longitude
-                      )}) with a distance of ${new Intl.NumberFormat().format(
-                        nearestCity.distance
-                      )} (m)`
-                    : 'Can not find the nearest city'
+                  nearestCities:
+                    nearestCities.length > 0
+                      ? nearestCities
+                          .map(
+                            (city, index) =>
+                              `${index + 1}. ${city.name} (${degreeToDecimal(
+                                city.latitude
+                              )}, ${degreeToDecimal(
+                                city.longitude
+                              )}) with a distance of ${new Intl.NumberFormat().format(
+                                city.distance
+                              )} (m)`
+                          )
+                          .join('\n')
+                      : 'Can not find the nearest cities'
                 });
 
                 return (
@@ -248,24 +254,22 @@ const Home = () => {
                     <td>{location.latitude}</td>
                     <td>{location.longitude}</td>
                     <td>
-                      {nearestCity ? (
-                        <div>
-                          <span>
-                            {nearestCity.name} (
-                            {degreeToDecimal(nearestCity.latitude)},{' '}
-                            {degreeToDecimal(nearestCity.longitude)})
-                          </span>{' '}
-                          with a distance of{' '}
-                          <span>
-                            {new Intl.NumberFormat().format(
-                              nearestCity.distance
-                            )}{' '}
-                            (m)
-                          </span>
-                        </div>
-                      ) : (
-                        'Can not find the nearest city'
-                      )}
+                      {nearestCities.length > 0
+                        ? nearestCities.map((city, index) => (
+                            <div key={city.id}>
+                              <span>{index + 1}.</span>
+                              <span>
+                                {city.name} ({degreeToDecimal(city.latitude)},{' '}
+                                {degreeToDecimal(city.longitude)})
+                              </span>{' '}
+                              with a distance of{' '}
+                              <span>
+                                {new Intl.NumberFormat().format(city.distance)}{' '}
+                                (m)
+                              </span>
+                            </div>
+                          ))
+                        : 'Can not find the nearest cities'}
                     </td>
                   </tr>
                 );
