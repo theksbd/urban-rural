@@ -915,5 +915,5 @@ export const cities = [
     name: 'NGO QUYEN_HAI PHONG',
     latitude: '20.865909',
     longitude: '106.691787'
-  },
+  }
 ];
