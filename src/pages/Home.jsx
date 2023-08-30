@@ -243,7 +243,7 @@ const Home = () => {
                                 city.distance
                               )} (m)`
                           )
-                          .join('\n')
+                          .join(' \n')
                       : 'Can not find the nearest cities'
                 });
 
