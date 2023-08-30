@@ -888,5 +888,3 @@ export const cities = [
     longitude: '106.691787'
   }
 ];
-
-];
