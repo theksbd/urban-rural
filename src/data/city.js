@@ -708,183 +708,213 @@ export const cities = [
     longitude: '105.102356'
   },
   {
-    id: 131,
+    id: 119,
     name: 'HUE_THUA THIEN HUE',
     latitude: '16.461378',
     longitude: '107.604575'
   },
   {
-    id: 132,
+    id: 120,
     name: 'SON TRA_DA NANG',
     latitude: '16.064876',
     longitude: '108.232798'
   },
   {
-    id: 133,
+    id: 121,
     name: 'THANH HOA_THANH HOA',
     latitude: '19.783612',
     longitude: '105.780794'
   },
   {
-    id: 134,
+    id: 122,
     name: 'THANH KHE_DA NANG',
     latitude: '13.773875',
     longitude: '109.233773'
   },
   {
-    id: 135,
+    id: 123,
     name: 'CHI LINH_HAI DUONG',
     latitude: '20.936028',
     longitude: '106.291065'
   },
   {
-    id: 136,
+    id: 124,
     name: 'BINH LONG_BINH PHUOC',
     latitude: '11.655513',
     longitude: '106.6038'
   },
   {
-    id: 137,
+    id: 125,
     name: 'TAM KY_QUANG NAM',
     latitude: '15.56102',
     longitude: '108.487068'
   },
   {
-    id: 138,
+    id: 126,
     name: 'HA TINH_HA TINH',
     latitude: '18.322673',
     longitude: '105.913056'
   },
   {
-    id: 139,
+    id: 127,
     name: 'HUNG YEN_HUNG YEN',
     latitude: '20.950367',
     longitude: '106.074553'
   },
   {
-    id: 140,
+    id: 128,
     name: 'BINH THUY_CAN THO',
     latitude: '10.079278',
     longitude: '105.743666'
   },
   {
-    id: 141,
+    id: 129,
     name: 'TUYEN QUANG_TUYEN QUANG',
     latitude: '21.819163',
     longitude: '105.214569'
   },
   {
-    id: 142,
+    id: 130,
     name: 'DUONG KINH_HAI PHONG',
     latitude: '20.792975',
     longitude: '106.67711'
   },
   {
-    id: 143,
+    id: 131,
     name: 'PHU THO_PHU THO',
     latitude: '21.435446',
     longitude: '105.198425'
   },
   {
-    id: 144,
+    id: 132,
     name: 'BIM SON_THANH HOA',
     latitude: '19.340573',
     longitude: '105.823893'
   },
   {
-    id: 145,
+    id: 133,
     name: 'BA DON_QUANG BINH',
     latitude: '17.755541',
     longitude: '106.42'
   },
   {
-    id: 146,
+    id: 134,
     name: 'PHO YEN_THAI NGUYEN',
     latitude: '21.38929',
     longitude: '105.92059'
   },
   {
-    id: 147,
+    id: 135,
     name: 'CAI RANG_CAN THO',
     latitude: '10.026127',
     longitude: '105.765591'
   },
   {
-    id: 148,
+    id: 136,
     name: 'CAM RANH_KHANH HOA',
     latitude: '12.007167',
     longitude: '109.215399'
   },
   {
-    id: 149,
+    id: 137,
     name: 'NAM DINH_NAM DINH',
     latitude: '20.453052',
     longitude: '106.200272'
   },
   {
-    id: 150,
+    id: 138,
     name: 'LAO CAI_LAO CAI',
     latitude: '21.576818',
     longitude: '105.815811'
   },
   {
-    id: 151,
+    id: 139,
     name: 'CAO BANG_CAO BANG',
     latitude: '22.681931',
     longitude: '106.171522'
   },
   {
-    id: 152,
+    id: 140,
     name: 'HOA BINH_HOA BINH',
     latitude: '20.8275154',
     longitude: '105.3390793'
   },
   {
-    id: 153,
+    id: 141,
     name: 'BAC NINH_BAC NINH',
     latitude: '21.191071',
     longitude: '106.073493'
   },
   {
-    id: 154,
+    id: 142,
     name: 'BAC GIANG_BAC GIANG',
     latitude: '21.290903',
     longitude: '106.186703'
   },
   {
-    id: 155,
+    id: 143,
     name: 'THAI NGUYEN_THAI NGUYEN',
     latitude: '21.547606',
     longitude: '105.82657'
   },
   {
-    id: 156,
+    id: 144,
     name: 'NINH BINH_NINH BINH',
     latitude: '20.25049',
     longitude: '105.971372'
   },
   {
-    id: 157,
+    id: 145,
     name: 'LA GI_BINH THUAN',
     latitude: '10.706549',
     longitude: '107.845668'
   },
   {
-    id: 158,
+    id: 146,
     name: 'QUANG NGAI_QUANG NGAI',
     latitude: '15.163821',
     longitude: '108.797178'
   },
   {
-    id: 159,
+    id: 147,
     name: 'HOI AN_QUANG NAM',
     latitude: '15.880442',
     longitude: '108.340736'
   },
   {
-    id: 160,
+    id: 148,
     name: 'NGO QUYEN_HAI PHONG',
     latitude: '20.865909',
     longitude: '106.691787'
-  }
+  },
+   {
+    id: 149,
+    name: 'SON LA_SON LA',
+    latitude: '21.32778',
+    longitude: '103.928901'
+  },
+   {
+    id: 150,
+    name: 'QUANG YEN_QUANG NINH',
+    latitude: '20.945252',
+    longitude: '106.805774'
+      },
+   {
+    id: 151,
+    name: 'LAI CHAU_LAI CHAU',
+    latitude: '22.393791',
+    longitude: '103.437662'
+      },
+   {
+    id: 152,
+    name: 'YEN BAI_YEN BAI',
+    latitude: '21.711966',
+    longitude: '104.87903'
+         },
+   {
+    id: 153,
+    name: 'PHU MY_BA RIA VUNG TAU',
+    latitude: '10.59013',
+    longitude: '107.05497'
+      }
 ];
