@@ -3,10 +3,10 @@ import { getPreciseDistance } from 'geolib';
 import { useRef, useState } from 'react';
 import * as xlsx from 'xlsx';
 import City from '../components/City.jsx';
+import ExportToExcel from '../components/ExportToExcel.jsx';
 import { cities } from '../data/city.js';
 import '../styles/Home.css';
 import degreeToDecimal from '../utils/degreeToDecimal.js';
-import ExportToExcel from '../components/ExportToExcel.jsx';
 
 const Home = () => {
   const [cityDetail, setCityDetail] = useState({});
@@ -17,7 +17,7 @@ const Home = () => {
   const [longitude, setLongitude] = useState('');
   const [nearestCities, setNearestCities] = useState([]);
   const [importedLocations, setImportedLocations] = useState([]);
-  const dataToSave = [];
+  const dataToExport = [];
 
   const style = {
     position: 'absolute',
@@ -186,7 +186,7 @@ const Home = () => {
 
       {importedLocations.length > 0 && (
         <div className='export-excel'>
-          <ExportToExcel data={dataToSave} fileName='nhibo' />
+          <ExportToExcel data={dataToExport} fileName='nhibo' />
         </div>
       )}
 
@@ -225,7 +225,7 @@ const Home = () => {
                 // Get the nearest city
                 const nearestCity = newSortedCities[0];
 
-                dataToSave.push({
+                dataToExport.push({
                   id: location.id,
                   name: location.name,
                   latitude: location.latitude,
@@ -289,6 +289,7 @@ const Home = () => {
           .filter(city =>
             city.name.trim().toLowerCase().includes(search.toLowerCase().trim())
           )
+          .sort((a, b) => a.id - b.id)
           .map(city => (
             <div key={city.id} className='cities-item'>
               <p onClick={() => handleClickCity(city)}>
