@@ -186,7 +186,7 @@ const Home = () => {
 
       {importedLocations.length > 0 && (
         <div className='export-excel'>
-          <ExportToExcel data={dataToExport} fileName='nhibo' />
+          <ExportToExcel dataToExport={dataToExport} fileName='nhibo' />
         </div>
       )}
 
