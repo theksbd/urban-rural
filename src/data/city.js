@@ -887,34 +887,28 @@ export const cities = [
     latitude: '20.865909',
     longitude: '106.691787'
   },
-   {
+  {
     id: 149,
     name: 'SON LA_SON LA',
     latitude: '21.32778',
     longitude: '103.928901'
   },
-   {
+  {
     id: 150,
     name: 'QUANG YEN_QUANG NINH',
     latitude: '20.945252',
     longitude: '106.805774'
-      },
-   {
+  },
+  {
     id: 151,
     name: 'LAI CHAU_LAI CHAU',
     latitude: '22.393791',
     longitude: '103.437662'
-      },
-   {
+  },
+  {
     id: 152,
     name: 'YEN BAI_YEN BAI',
     latitude: '21.711966',
     longitude: '104.87903'
-         },
-   {
-    id: 153,
-    name: 'PHU MY_BA RIA VUNG TAU',
-    latitude: '10.59013',
-    longitude: '107.05497'
-      }
+  }
 ];
