@@ -378,5 +378,5 @@ export const cities = [
     name: 'Thành phố Thuận An',
     latitude: '10°54′18″N',
     longitude: '106°41′58″E'
-  }
+  },
 ];
