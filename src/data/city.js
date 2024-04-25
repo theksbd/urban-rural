@@ -644,8 +644,8 @@ export const cities = [
   {
     id: 108,
     name: 'VUNG TAU_BA RIA - VUNG TAU',
-    latitude: '10.74324',
-    longitude: '106.61056'
+    latitude: '10.343569',
+    longitude: '107.095251'
   },
   {
     id: 109,
